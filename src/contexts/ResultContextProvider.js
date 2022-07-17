@@ -18,7 +18,7 @@ function ResultContextProvider({ children }) {
       headers: {
         'X-User-Agent': 'desktop',
         'X-RapidAPI-Host': 'google-search3.p.rapidapi.com',
-        'X-RapidAPI-Key': 'f14355ff42msh8248adb2360cb45p1888f1jsnc08e5b359de9'
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
       }
     });
 
