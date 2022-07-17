@@ -10,9 +10,15 @@ function Search() {
   const [text, setText] = useState('');
   const [debouncedValue] = useDebounce(text, 300);
 
-  useEffect(() => {
-    if (debouncedValue) setSearchTerm(debouncedValue);
-  }, [debouncedValue]);
+  // useEffect(() => {
+    
+  //   if (debouncedValue) setSearchTerm(debouncedValue);
+  // }, [debouncedValue]);
+
+  const handleChange = () =>
+    {
+      setSearchTerm(text);
+    }
 
   return (
     <div className="relative sm:ml-48 md:ml-72 sm:-mt-10 mt-3">
@@ -23,11 +29,15 @@ function Search() {
         placeholder="🔎 Search Google or type URL"
         onChange={(e) => setText(e.target.value)}
       />
-      {text !== '' && (
+      {/* {text !== '' && (
         <button type="button" className="absolute top-1.5 right-4 text-2xl text-gray-500 " onClick={() => setText('')}>
           x
         </button>
-      )}
+      )} */}
+
+      <button type="button" className='m-5 text-xl bg-blue-500  text-white py-1 px-2 rounded dark:bg-gray-50 dark:text-gray-900' onClick={handleChange}> 
+        Search
+      </button>
       <Links />
     </div>
   );

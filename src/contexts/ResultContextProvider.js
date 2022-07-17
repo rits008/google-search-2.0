@@ -6,12 +6,12 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1'
 
 function ResultContextProvider({ children }) {
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   // get result
   const getResults = async (type) => {
-    setLoading(true);
+    setIsLoading(true);
 
     const res = await fetch(`${baseUrl}${type}`, {
       method: 'GET',
@@ -37,10 +37,10 @@ function ResultContextProvider({ children }) {
 
 
 
-    setLoading(false);
+    setIsLoading(false);
   };
   return (
-    <ResultContext.Provider value={{ getResults, results, searchTerm, setSearchTerm, loading }}>
+    <ResultContext.Provider value={{ getResults, results, searchTerm, setSearchTerm, isLoading }}>
       {children}
     </ResultContext.Provider>
   )

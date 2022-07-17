@@ -18,7 +18,7 @@ function Results() {
         getResults(`${location.pathname}/q=${searchTerm}&num=40`); // num==40 means 40 results
       }
     }
-  },[searchTerm,location.pathname])
+  },[searchTerm,location.pathname]);
 
   if(isLoading) return <Loading/>
 
